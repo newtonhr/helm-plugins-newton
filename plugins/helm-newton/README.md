@@ -19,7 +19,7 @@ plugins (or `/plugin marketplace add newtonhr/helm-plugins-newton` in Claude Cod
 standalone `axon-sow-architect` / `pz-compiler` skills. Otherwise two copies compete on
 every message.
 
-The Helm MCP connector is not bundled; add it at account level.
+The plugin carries the Helm connector (`.mcp.json`: `https://helm.newton.hr/mcp`, personal-code login). Claude Code reuses an existing connector with the same URL.
 
 E-commerce audit (formerly `webshop-admin`) is a client plugin now: `newtonhr/helm-plugins`, `plugins/e-commerce-audit`.
 
@@ -65,10 +65,11 @@ how a PZ gets priced twice as high by accident.
 Turn off the standalone account-level `axon-sow-architect` and `pz-compiler`
 skills in Customize → Skills. Otherwise both copies compete on every message.
 
-## Not included
+## Connector (changed in 0.2.1)
 
-The **Marina_Ops - Helm** MCP connector stays a separate account-level connector.
-It is not bundled here, so turning this plugin off does not cut server access.
+The marina-ops plugin kept the Helm connector separate. Since 0.2.1 it is bundled
+(Grgur, 2026-10-22), so turning this plugin off also turns off its copy of the
+connector. An account-level Helm connector keeps working on its own.
 
 ## Before first use of the Word generator
 

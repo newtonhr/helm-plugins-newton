@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "helm": {
+      "type": "http",
+      "url": "https://helm.newton.hr/mcp"
+    }
+  }
+}

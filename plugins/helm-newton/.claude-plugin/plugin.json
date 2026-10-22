@@ -1,6 +1,6 @@
 {
   "name": "helm-newton",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Newton d.o.o. internal toolkit for Helm clients: scoping and pricing a Projektni zadatak, and compiling it into a PROGRAM for Claude Code. Internal only: holds Newton pricing rules. Never install for a client. E-commerce audit lives in newtonhr/helm-plugins.",
   "author": {
     "name": "Newton d.o.o."
