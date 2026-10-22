@@ -1,0 +1,9 @@
+{
+  "name": "helm-newton",
+  "version": "0.1.0",
+  "description": "Newton d.o.o. internal toolkit for Helm clients: E-commerce audit (web shop audit, Croatian client report, .xlsx backlog), scoping and pricing a Projektni zadatak, and compiling it into a PROGRAM for Claude Code. Internal only: holds Newton pricing rules. Never install for a client.",
+  "author": {
+    "name": "Newton d.o.o."
+  },
+  "keywords": ["helm", "newton", "e-commerce-audit", "projektni-zadatak", "marina-stores", "prestashop"]
+}

@@ -1,0 +1,263 @@
+{
+  "meta": {
+    "shop": "Test shop",
+    "url": "https://example.test",
+    "audit_date": "2026-10-07"
+  },
+  "findings": [
+    {
+      "id": "CHK-1",
+      "title": "Show total cost early in checkout",
+      "status": "partial",
+      "finding": "Shipping cost appears only at the last step.",
+      "evidence": "screenshot-checkout-2.png",
+      "origin": "new",
+      "timing": "fix now",
+      "margin_base_eur": 500000,
+      "effect_low": 0.02,
+      "effect_high": 0.04,
+      "newton_days": 2,
+      "client_days": 1,
+      "run_cost_month": 0,
+      "rigor": "B",
+      "transfer": 0.7,
+      "proxy_metric": "Checkout completion",
+      "test_design": "before/after",
+      "acceptance_criteria": "Total visible in cart"
+    },
+    {
+      "id": "BND-QRY",
+      "kind": "bundle",
+      "title": "Query dictionary",
+      "status": "missing",
+      "newton_days": 6,
+      "client_days": 3,
+      "run_cost_month": 20,
+      "origin": "new",
+      "timing": "fix now"
+    },
+    {
+      "id": "SRC-1",
+      "kind": "child",
+      "bundle": "BND-QRY",
+      "title": "Synonyms and abbreviations",
+      "status": "missing",
+      "margin_base_eur": 400000,
+      "effect_low": 0.02,
+      "effect_high": 0.04,
+      "rigor": "A",
+      "transfer": 0.7,
+      "evidence": "evidence/src-1.png"
+    },
+    {
+      "id": "SRC-7",
+      "kind": "child",
+      "bundle": "BND-QRY",
+      "title": "Symptom queries",
+      "status": "missing",
+      "margin_base_eur": 200000,
+      "rigor": "B",
+      "transfer": 0.7,
+      "evidence": "evidence/src-7.png"
+    },
+    {
+      "id": "SRC-4",
+      "kind": "child",
+      "bundle": "BND-QRY",
+      "title": "Query to filters",
+      "status": "done",
+      "margin_base_eur": 100000,
+      "effect_low": 0.01,
+      "effect_high": 0.02,
+      "rigor": "B",
+      "transfer": 0.7,
+      "evidence": "evidence/src-4.png"
+    },
+    {
+      "id": "CAT-1",
+      "title": "Descriptions for thin listings",
+      "status": "missing",
+      "margin_base_eur": 1000000,
+      "effect_low": 0.02,
+      "effect_high": 0.065,
+      "newton_days": 8,
+      "client_days": 15,
+      "run_cost_month": 400,
+      "rigor": "A",
+      "transfer": 1.0,
+      "safety_critical": true,
+      "acceptance_criteria": "Per-SKU sign-off on safety-critical lines",
+      "evidence": "evidence/cat-1.png"
+    },
+    {
+      "id": "DSC-1",
+      "title": "Merchant Center feed",
+      "status": "partial",
+      "margin_base_eur": 50000,
+      "effect_low": 0.01,
+      "effect_high": 0.03,
+      "newton_days": 2,
+      "client_days": 0,
+      "rigor": "Policy",
+      "transfer": 0.7,
+      "evidence": "evidence/dsc-1.png"
+    },
+    {
+      "id": "SVC-4",
+      "title": "Shopping assistant",
+      "status": "missing",
+      "margin_base_eur": 300000,
+      "effect_low": 0.01,
+      "effect_high": 0.02,
+      "newton_days": 30,
+      "client_days": 15,
+      "rigor": "C",
+      "transfer": 0.4,
+      "evidence": "evidence/svc-4.png"
+    },
+    {
+      "id": "PDP-2",
+      "title": "Live stock",
+      "status": "done",
+      "evidence": "evidence/pdp-2.png"
+    },
+    {
+      "id": "MER-1",
+      "title": "Seasonal pages",
+      "status": "n/a",
+      "evidence": "evidence/mer-1.png"
+    }
+  ],
+  "legal": [
+    {
+      "id": "LEG-3",
+      "rule": "Omnibus prior price",
+      "checked": "10 discounted SKUs",
+      "finding": "Prior price not shown",
+      "evidence": "url",
+      "action": "Show 30-day lowest price"
+    }
+  ],
+  "baseline": [
+    {
+      "metric": "Zero-result rate (hr)",
+      "value": 0.18,
+      "date": "2026-10-07",
+      "method": "50 queries"
+    }
+  ],
+  "competitors": [
+    {
+      "feature": "Shipping on PDP",
+      "values": {
+        "client": "no",
+        "svb24": "yes"
+      }
+    }
+  ],
+  "not_checked": [
+    {
+      "item": "GA4 funnel",
+      "reason": "no export yet",
+      "effect": "impact bands estimated"
+    }
+  ],
+  "sources": [
+    {
+      "card": "CHK-1",
+      "source": "Baymard",
+      "url": "https://baymard.com/lists/cart-abandonment-rate",
+      "rigor": "B"
+    }
+  ],
+  "behavior": [
+    {
+      "id": "BEH-4",
+      "title": "Offer pay after delivery (invoice)",
+      "status": "missing",
+      "observation": "Payments: card, bank transfer, cash on delivery. No invoice or pay-later option at the payment step.",
+      "evidence": "pages/path/client_checkout_payment.html",
+      "hypothesis": "If shoppers can pay after delivery, more of them finish the order, because the payment risk moves off them.",
+      "grade": "A",
+      "effort": "M",
+      "source": "Berg, Burg, Keil & Puri 2025 (RCT, German furniture shop)",
+      "measure": "Payment-step completion",
+      "test_design": "Before/after with dated log",
+      "acceptance_criteria": "Invoice option live through a provider that carries the credit risk; consumer-credit rules checked."
+    },
+    {
+      "id": "PATH-1",
+      "title": "Shorten the path from landing to payment",
+      "status": "partial",
+      "observation": "Client desktop needs 9 interactions to the first checkout form; best competitor needs 6.",
+      "evidence": "path.json",
+      "hypothesis": "If the path to the first form drops from 9 to 6 interactions, more carts reach checkout.",
+      "grade": "B",
+      "effort": "S",
+      "source": "Unal & Park 2023 (quasi-experiment)",
+      "measure": "Interactions to first checkout form; cart-to-checkout rate",
+      "test_design": "Before/after with dated log",
+      "acceptance_criteria": "path_metrics.py reports 6 or fewer on desktop and mobile."
+    },
+    {
+      "id": "BEH-2",
+      "title": "Show true low stock on product pages",
+      "status": "missing",
+      "observation": "No stock level on sampled product pages.",
+      "evidence": "evidence/screenshot_pdp.jpg",
+      "hypothesis": "If the page shows the real remaining stock when it is low, shoppers who want the item decide sooner.",
+      "grade": "A",
+      "effort": "S",
+      "source": "Qubit 2017; Cui, Zhang & Bassamboo 2019",
+      "truth_source": "POS stock, synced hourly",
+      "measure": "Add-to-cart rate on low-stock SKUs",
+      "test_design": "Randomized SKU-level rollout",
+      "acceptance_criteria": "Signal shows only when POS stock is at or below 3; spot check of 50 SKUs matches POS."
+    },
+    {
+      "id": "PATH-3",
+      "title": "Buy and checkout buttons exist, work and are not covered",
+      "status": "done",
+      "observation": "Add-to-cart and checkout buttons work on desktop and mobile; nothing covers them, also with the cookie banner unanswered.",
+      "evidence": "path.json (covered_primary_flags empty)"
+    },
+    {
+      "id": "NEWB-1",
+      "title": "Link a size guide beside the weight selector",
+      "status": "missing",
+      "observation": "The anchor product page offers 10 weights and no advice on which fits which boat.",
+      "evidence": "evidence/screenshot_pdp.jpg",
+      "hypothesis": "If the weight selector links to a one-line size guide, fewer shoppers leave the page to look the answer up.",
+      "grade": "C",
+      "effort": "S",
+      "measure": "Product-page exit rate on anchors",
+      "test_design": "Before/after with dated log"
+    },
+    {
+      "id": "NEWB-2",
+      "kind": "defect",
+      "title": "Cart drawer shows the wrong shipping cost on desktop",
+      "status": "missing",
+      "observation": "Desktop drawer shows Dostava 46,25 EUR; the cart page shows 7,00 EUR.",
+      "evidence": "evidence/screenshot_drawer.png",
+      "effort": "S",
+      "measure": "Drawer total equals cart page total"
+    }
+  ],
+  "path": [
+    {
+      "metric": "Interactions to first checkout form",
+      "values": {
+        "client desktop": 9,
+        "awn desktop": 6,
+        "client mobile": 10
+      }
+    },
+    {
+      "metric": "Checkout fields typed (complete walks only)",
+      "values": {
+        "client desktop": 11
+      }
+    }
+  ]
+}
