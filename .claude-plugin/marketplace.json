@@ -1,0 +1,14 @@
+{
+  "name": "helm-plugins-newton",
+  "description": "Newton d.o.o. internal Claude plugins for Helm client work. Never for clients.",
+  "owner": {
+    "name": "Newton d.o.o."
+  },
+  "plugins": [
+    {
+      "name": "helm-newton",
+      "source": "./plugins/helm-newton",
+      "description": "Newton internal: E-commerce audit, Projektni zadatak scoping and pricing, PZ to PROGRAM compiler. Never for clients."
+    }
+  ]
+}
