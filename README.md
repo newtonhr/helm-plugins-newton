@@ -5,9 +5,9 @@ live in `newtonhr/helm-plugins`; nothing from this repo goes to a client.
 
 | Plugin | What it does |
 |---|---|
-| [`helm-newton`](plugins/helm-newton/) | E-commerce audit, Projektni zadatak scoping and pricing, PZ → PROGRAM compiler |
+| [`helm-newton`](plugins/helm-newton/) | Projektni zadatak scoping and pricing, PZ → PROGRAM compiler |
 
 Install in Claude Code: `/plugin marketplace add newtonhr/helm-plugins-newton`, then
 `/plugin install helm-newton@helm-plugins-newton`.
 
-Tests: `python3 -m unittest discover -s plugins/helm-newton/skills/e-commerce-audit/scripts/tests`.
+E-commerce audit is a client plugin: `newtonhr/helm-plugins`.
