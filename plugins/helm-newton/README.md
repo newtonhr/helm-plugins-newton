@@ -6,8 +6,6 @@ process. Never install it for a client and never copy its files into
 
 | Skill / agent | What it does | Came from |
 |---|---|---|
-| `helm-newton:e-commerce-audit` | Audits a web shop against proven e-tail practices → Croatian client report + .xlsx Newton backlog. Run by name only ("E-commerce audit") | `webshop-admin` 0.2.0, renamed |
-| agent `audit-reviewer` | Mandatory review gate of an E-commerce audit | `webshop-admin` 0.2.0 |
 | `helm-newton:axon-sow-architect` | Feature request → internal plan + Upitnik + priced Projektni zadatak | `marina-ops` 1.2.0 |
 | `helm-newton:pz-compiler` | Answered PZ → `PROGRAM_<slug>.md`, handed to Claude Code with `pz_submit` | `marina-ops` 1.2.0 |
 
@@ -17,17 +15,13 @@ Install in Claude Code: `/plugin install helm-newton --marketplace newtonhr/helm
 `.claude-plugin/plugin.json`, zip `plugins/helm-newton/` and upload it to the Cowork org
 plugins (or `/plugin marketplace add newtonhr/helm-plugins-newton` in Claude Code).
 
-**After installing:** turn off the old `webshop-admin` and `marina-ops` plugins and any
+**After installing:** turn off the old `marina-ops` plugin and any
 standalone `axon-sow-architect` / `pz-compiler` skills. Otherwise two copies compete on
 every message.
 
 The Helm MCP connector is not bundled; add it at account level.
 
-## E-commerce audit requirements
-
-Python 3.9+ with `openpyxl`; LibreOffice for recalculation. Tests:
-`python3 -m unittest discover -s plugins/helm-newton/skills/e-commerce-audit/scripts/tests`.
-More in [`skills/e-commerce-audit/README.md`](skills/e-commerce-audit/README.md).
+E-commerce audit (formerly `webshop-admin`) is a client plugin now: `newtonhr/helm-plugins`, `plugins/e-commerce-audit`.
 
 ---
 

@@ -8,7 +8,7 @@
     {
       "name": "helm-newton",
       "source": "./plugins/helm-newton",
-      "description": "Newton internal: E-commerce audit, Projektni zadatak scoping and pricing, PZ to PROGRAM compiler. Never for clients."
+      "description": "Newton internal: Projektni zadatak scoping and pricing, PZ to PROGRAM compiler. Never for clients."
     }
   ]
 }
