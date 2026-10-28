@@ -9,6 +9,11 @@
       "name": "helm-newton",
       "source": "./plugins/helm-newton",
       "description": "Newton internal: Projektni zadatak scoping and pricing, PZ to PROGRAM compiler. Never for clients."
+    },
+    {
+      "name": "newton-sales",
+      "source": "./plugins/newton-sales",
+      "description": "Newton internal: Helm/Axon sales material — website, brochures, case study, and tailored prospect research. Never for clients."
     }
   ]
 }
