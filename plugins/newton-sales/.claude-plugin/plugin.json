@@ -1,0 +1,16 @@
+{
+  "name": "newton-sales",
+  "displayName": "Newton Sales",
+  "version": "0.1.0",
+  "description": "Newton d.o.o. internal: Helm/Axon sales material for company directors. Shared core (positioning, director questions, capability status, proof), general material (website, brochures, case study) and tailored prospect research. Internal only.",
+  "author": {
+    "name": "Newton d.o.o."
+  },
+  "keywords": [
+    "helm",
+    "newton",
+    "sales",
+    "case-study",
+    "prospecting"
+  ]
+}
